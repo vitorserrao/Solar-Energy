@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row justify-content-around">
+    <div class="col-7 esq">
+      <img src="assets/Imagem.png" alt="" class="img-fluid vh-100 img-login" />
+    </div>
+    <div class="col dir">
+      <div><img src="assets/Logo.png" alt="" class="img-fluid logo" /></div>
+      <div class="bemvindo"><span>Seja Bem-Vindo</span></div>
+
+      <div
+        *ngIf="
+          (email.invalid && (email.touched || email.dirty)) ||
+          (!senha.valid && (senha.touched || senha.dirty))
+        "
+        class="alert alert-danger text-center"
+        role="alert"
+      >
+        Campo obrigatório!
+      </div>
+      <div
+        *ngIf="email.errors?.['pattern']"
+        class="alert alert-danger text-center"
+        role="alert"
+      >
+        Digite Email válido!
+      </div>
+
+      <form #loginForm="ngForm" (ngSubmit)="submitLogin(loginForm)">
+        <div class="row">
+          <div class="col">
+            <div class="form-group input-group mb-3 email">
+              <span class="input-group-text" id="basic-addon1"
+                ><img src="assets/envelope.svg" alt=""
+              /></span>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                ngModel
+                [(ngModel)]="usuario.email"
+                #email="ngModel"
+                required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                placeholder="Email"
+                aria-label="email"
+                aria-describedby="basic-addon1"
+                [class.is-invalid]="!email.valid && email.touched"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="input-group mb-3 senha">
+              <span class="input-group-text" id="basic-addon1"
+                ><img src="assets/lock.svg" alt=""
+              /></span>
+              <input
+                type="password"
+                name="senha"
+                ngModel
+                [(ngModel)]="usuario.senha"
+                #senha="ngModel"
+                class="form-control"
+                placeholder="Senha"
+                aria-label="senha"
+                aria-describedby="basic-addon1"
+                required
+                [class.is-invalid]="!senha.valid && senha.touched"
+              />
+            </div>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-success bt-entrar"
+          [disabled]="!loginForm.valid"
+          (click)="entrar()"
+        >
+          Entrar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
