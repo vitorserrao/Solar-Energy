@@ -5,12 +5,25 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { GeracaoEnergiaComponent } from './components/pages/geracao-energia/geracao-energia.component';
 import { CadastroUnidadeComponent } from './components/pages/cadastro-unidade/cadastro-unidade.component';
 import { HomeComponent } from './components/pages/home/home.component';
+import { AuthGuardService } from './service/auth-guard.service';
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'geracaoEnergia', component: GeracaoEnergiaComponent },
-  { path: 'cadastroUnidade', component: CadastroUnidadeComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'geracaoEnergia',
+    component: GeracaoEnergiaComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'cadastroUnidade',
+    component: CadastroUnidadeComponent,
+    canActivate: [AuthGuardService],
+  },
   { path: 'home', component: HomeComponent },
 ];
 
