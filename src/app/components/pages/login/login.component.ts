@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   public usuario: LoginModel = new LoginModel();
   constructor(
     private formBuiler: FormBuilder,
-    private router: Router,
+    public router: Router,
     private authService: AuthService
   ) {}
 

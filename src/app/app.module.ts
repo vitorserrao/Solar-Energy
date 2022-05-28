@@ -8,6 +8,7 @@ import { CadastroUnidadeComponent } from './components/pages/cadastro-unidade/ca
 import { GeracaoEnergiaComponent } from './components/pages/geracao-energia/geracao-energia.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './service/auth.service';
+import { HomeComponent } from './components/pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AuthService } from './service/auth.service';
     DashboardComponent,
     CadastroUnidadeComponent,
     GeracaoEnergiaComponent,
+    HomeComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [AuthService],
