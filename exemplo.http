@@ -1,0 +1,14 @@
+http://localhost:3000/unidades
+###
+
+PUT http://localhost:3000/unidades/1 HTTP/1.1
+content-type: application/json
+
+{
+    "id": 1,
+    "apelido": "c",
+    "local": "rdvdvdv",
+    "marca": "apvdvv400",
+    "modelo": "1ddv5w",
+    "ativo": true
+}
