@@ -4,6 +4,7 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
 import { LoginComponent } from './components/pages/login/login.component';
 import { GeracaoEnergiaComponent } from './components/pages/geracao-energia/geracao-energia.component';
 import { UnidadesComponent } from './components/pages/unidades/unidades.component';
+import { CadastroUnidadeComponent } from './components/pages/unidades/cadastro-unidade/cadastro-unidade.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { AuthGuardService } from './service/auth-guard.service';
 const routes: Routes = [
@@ -17,12 +18,6 @@ const routes: Routes = [
   {
     path: 'geracaoEnergia',
     component: GeracaoEnergiaComponent,
-    canActivate: [AuthGuardService],
-  },
-
-  {
-    path: 'unidades',
-    component: UnidadesComponent,
     canActivate: [AuthGuardService],
   },
 ];
