@@ -11,7 +11,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { AuthGuardService } from './service/auth-guard.service';
 import { UnidadesModule } from './components/pages/unidades/unidades.module';
 import { HttpClientModule } from '@angular/common/http';
-
+import { map, filter, scan } from 'rxjs/operators';
 @NgModule({
   declarations: [
     AppComponent,

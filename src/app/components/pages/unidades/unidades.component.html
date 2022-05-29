@@ -1,34 +1,60 @@
 <div class="m-4"><h2>Unidades</h2></div>
 <div class="container bg-light vh-100">
-  <div class="row">
-    <form>
-      <div class="mb-3" style="width: 282px">
-        <label class="formCadastro">Apelido</label>
-        <input type="text" class="form-control" />
+  <div class="card mt-3">
+    <div class="card-header">
+      <div class="float-left">
+        <h4>Listas de unidades</h4>
       </div>
-      <div class="mb-3" style="width: 574px">
-        <label class="formCadastro">Local</label>
-        <input type="text" class="form-control" />
-      </div>
-      <div class="mb-3" style="width: 574px">
-        <label class="formCadastro">Marca</label>
-        <input type="text" class="form-control" />
-      </div>
-      <div class="mb-3" style="width: 574px">
-        <label class="formCadastro">Modelo</label>
-        <input type="text" class="form-control" />
-      </div>
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" />
-        <label class="form-check-label" for="exampleCheck1">Ativo</label>
-      </div>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Apelido</th>
+            <th>Local</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let unidade of unidades$ | async">
+            <td>{{ unidade.id }}</td>
+            <td>{{ unidade.apelido }}</td>
+            <td>{{ unidade.local }}</td>
+            <td>{{ unidade.marca }}</td>
+            <td>{{ unidade.modelo }}</td>
+
+            <td>
+              <span class="float-right">
+                <button
+                  type="button"
+                  class="btn btn-success mx-2 btn-sm"
+                  (click)="editar(unidade.id)"
+                >
+                  Editar
+                </button>
+
+                <button type="button" class="btn btn-danger btn-sm">
+                  Remover
+                </button>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row justify-content-end my-5">
+    <div class="col-2">
       <button
-        type="submit"
-        class="btn btn-primary text-center"
-        style="width: 250px"
+        type="button"
+        class="btn btn-primary"
+        [routerLink]="['unidades/cadastroUnidades']"
+        routerLinkActive="router-link-active"
       >
-        Salvar
+        Nova Unidade
       </button>
-    </form>
+    </div>
   </div>
 </div>

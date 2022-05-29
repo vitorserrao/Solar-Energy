@@ -12,7 +12,7 @@ export class AuthService {
   onMenuEmiter = new EventEmitter<boolean>();
   constructor(private router: Router) {}
   entrar(usuario: LoginModel) {
-    if (usuario.email === 'vitorwss@gmail.com' && usuario.senha === '12345') {
+    if (usuario.email === 'admin@admin.com' && usuario.senha === 'admin') {
       this.usuarioAutenticado = true;
       this.onMenuEmiter.emit(true);
       this.router.navigate(['dashboard']);

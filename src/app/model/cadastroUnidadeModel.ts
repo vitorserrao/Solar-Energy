@@ -4,4 +4,5 @@ export class CadastroUnidadeModel {
   marca!: string;
   modelo!: string;
   ativo!: boolean;
+  id!: string;
 }

@@ -5,6 +5,7 @@ import { UnidadesComponent } from './unidades.component';
 const unidadesroutes: Routes = [
   { path: 'unidades', component: UnidadesComponent },
   { path: 'unidades/cadastroUnidades', component: CadastroUnidadeComponent },
+  { path: 'editar/:id', component: CadastroUnidadeComponent },
 ];
 
 @NgModule({
